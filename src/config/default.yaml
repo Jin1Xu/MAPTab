@@ -1,0 +1,113 @@
+device: cuda
+data_root: /path/to/data
+output_root: /path/to/output
+
+exp_name: test
+note: ours
+
+map_alpha_min: 0.1
+map_alpha_max: 1.0
+map_gamma: 0.5
+map_rho_max: 0.7 
+map_weight_a: 0.5
+map_weight_b: 0.2
+observed_loss_weight: 1.0
+type_aware_cont_weight: 0.8
+
+scenarios: [MAR]
+miss_pct: [0.3,]
+n_iter: 3
+n_jobs: 3
+gpu_ids: [0,1,2]
+
+target_datasets: [obesity,]
+batch_size: null
+accum_iter: 1
+max_epochs: 600
+blr: 0.001
+lr: null
+min_lr: 0.00001
+warmup_epochs: 40
+weight_decay: 0.05
+
+datasets:
+  climate:
+    problem_type: classification
+    batch_size: 64
+    embed_dim: 32
+    depth: 4
+    decoder_depth: 2
+    num_heads: 4
+    mlp_ratio: 4.0
+
+  spam:
+    problem_type: classification
+    batch_size: 512
+    embed_dim: 64
+    depth: 8
+    decoder_depth: 6
+    num_heads: 4
+    mlp_ratio: 4.0
+
+  shoppers:
+    problem_type: classification
+    batch_size: 2048
+    embed_dim: 64
+    depth: 8
+    decoder_depth: 6
+    num_heads: 4
+    mlp_ratio: 4.0
+
+  default:
+    problem_type: classification
+    batch_size: 4096
+    embed_dim: 64
+    depth: 8
+    decoder_depth: 6
+    num_heads: 4
+    mlp_ratio: 4.0
+
+  letter:
+    problem_type: classification
+    batch_size: 2048
+    embed_dim: 64
+    depth: 8
+    decoder_depth: 6
+    num_heads: 4
+    mlp_ratio: 4.0
+
+  credit:
+    problem_type: classification
+    batch_size: 128
+    embed_dim: 32
+    depth: 6
+    decoder_depth: 4
+    num_heads: 4
+    mlp_ratio: 4.0
+
+  raisin:
+    problem_type: classification
+    batch_size: 128
+    embed_dim: 64
+    depth: 8
+    decoder_depth: 4
+    num_heads: 4
+    mlp_ratio: 4.0
+
+  obesity:
+    problem_type: classification
+    batch_size: 256
+    embed_dim: 64
+    depth: 8
+    decoder_depth: 6
+    num_heads: 4
+    mlp_ratio: 4.0
+
+  bike:
+    problem_type: regression
+    batch_size: 1024
+    embed_dim: 32
+    depth: 8
+    decoder_depth: 4
+    num_heads: 4
+    mlp_ratio: 4.0
